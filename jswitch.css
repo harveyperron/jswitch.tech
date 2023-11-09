@@ -1,0 +1,111 @@
+		.product_image{
+			width:60%;
+		}
+		.price{
+			padding:1vh;
+			background:#b50202;
+			color:#f0ce9c;
+			width:min-content;
+			white-space:nowrap;
+			font-weight:bold
+		}
+		a{
+			text-decoration:none;
+			color:black;
+		}
+        .product:hover {
+		background:white;
+			box-shadow:0 0 13px black;
+            border: 1px solid black;
+		
+	}
+        .product {
+			max-width:300px;
+            border: 1px solid darkgrey;
+			border-radius:2px;
+			box-shadow:-3px 3px 3px grey;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+        }
+	.nav-item:hover{
+		color:white;
+			background:#b50202;
+		
+	}
+	.nav-item{
+		cursor:pointer;
+		text-shadow:.5px 0.5px 3px black;
+		margin:2vw;
+		padding:1vh;
+		font-weight:bold;
+		color:#edbf18;
+	}
+	.topbar{
+		text-shadow:-1px 1px 1px black;
+		box-shadow:3px 3px 17px black;
+		background:linear-gradient(to right,black,#022cb5);
+		color:#fca903;
+		margin:0;
+		margin:0;
+		padding:1vh;
+		position:fixed;
+		width:100%;
+	}
+	body{
+		padding:0;
+		margin:0;
+	}
+	:root{
+		margin:0;
+		background:#fca903;
+		background:white;
+		padding:0;
+		font-family: 'Roboto Slab', serif;
+	}
+	#logo{
+		color:white;
+	}
+.nav-off{
+  transform: translateY(0);
+  transition: transform 0.7s;
+}
+.nav-scrolled {
+  transform: translateY(-100%);
+  transition: transform 0.7s;
+}
+.divulgation{
+	font-size:1.3vh;
+	padding:1vw;
+}
+  #search-container {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    border-radius: 25px;
+    overflow: hidden;
+  }
+
+  #keywords {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-radius: 25px 0 0 25px;
+    flex-grow: 1;
+  }
+
+  #searchbutton {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: background-color 0.3s ease;
+  }
+
+  #searchbutton:hover {
+    background-color: #0056b3;
+  }
+

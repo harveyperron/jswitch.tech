@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# Replace 'YOUR_APP_ID' with your eBay App ID
+APP_ID="JeanMich-Jswitchs-PRD-7fcc2d46c-1b092efd"
+
+# Get the search term from the command line argument
+SEARCH_TERM="$1"
+
+# Number of items per page (max 100 for eBay API)
+ITEMS_PER_PAGE=10
+
+# Counter for pagination loop
+PAGE_NUMBER=1
+
+# HTML header
+echo "<html>"
+echo "<head>"
+echo "<title>eBay Products</title>"
+echo "<style>"
+echo "body { font-family: Arial, sans-serif; }"
+echo ".product { border: 1px solid #ccc; padding: 20px; margin: 20px; }"
+echo ".product img { max-width: 100px; max-height: 100px; }"
+echo "</style>"
+echo "</head>"
+echo "<body>"
+
+# Loop through API pages to retrieve all results
+while true; do
+  # Make the API request to search for products with pagination parameters
+  API_URL="https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=$APP_ID&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=$SEARCH_TERM&paginationInput.entriesPerPage=$ITEMS_PER_PAGE&paginationInput.pageNumber=$PAGE_NUMBER"
+  
+  # Use curl to make the API request and jq to extract product information
+  PAGE_INFO=$(curl -s "$API_URL" | jq -r '.findItemsByKeywordsResponse[0].searchResult[0].item[]')
+
+  # Break the loop if no more results are found
+  if [ -z "$PAGE_INFO" ]; then
+    break
+  fi
+
+  # Print current page information
+  while IFS= read -r item; do
+    image=$(echo "$item" | jq -r '.galleryURL[0] // "N/A"')
+    title=$(echo "$item" | jq -r '.title[0] // "N/A"')
+    price=$(echo "$item" | jq -r '.sellingStatus[0].convertedCurrentPrice[0].__value__ // "N/A"')
+    currency=$(echo "$item" | jq -r '.sellingStatus[0].convertedCurrentPrice[0].@currencyId // "N/A"')
+    url=$(echo "$item" | jq -r '.viewItemURL[0] // "N/A"')
+    description=$(echo "$item" | jq -r '.subtitle[0] // "N/A"')
+    
+    echo "<div class=\"product\">"
+    echo "<img src=\"$image\"><br>"
+    echo "<b>$title</b><br>"
+    echo "Price: $price $currency<br>"
+    echo "Description: $description<br>"
+    echo "<a href=\"$url\">View Item</a>"
+    echo "</div>"
+  done <<< "$PAGE_INFO"
+
+  # Increment the page number for the next request
+  ((PAGE_NUMBER++))
+done
+
+# HTML footer
+echo "</body>"
+echo "</html>"
+

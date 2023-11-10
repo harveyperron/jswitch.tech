@@ -122,7 +122,8 @@
 	#topbar{
 		text-shadow:-1px 1px 1px black;
 		box-shadow:3px 3px 17px black;
-		background:linear-gradient(to right,black,#022cb5);
+		background:linear-gradient(to right,white,#022cb5);
+		background:white;
 		color:#fca903;
 		margin:0;
 		padding:1vw;
@@ -157,9 +158,9 @@
     border-radius: 25px;
 }
   #search-container {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,1);
     display: flex;
-    border-radius: 25px;
+    border-radius: 16px;
     overflow: hidden;
   }
 
@@ -175,16 +176,18 @@
   #searchbutton {
     padding: 10px 20px;
     border: none;
-    background-color: #007BFF;
+    background-color:#3a5e9c;
     color: white;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 0 25px 25px 0;
+    border-radius: 0 12px 12px 0;
     transition: background-color 0.3s ease;
+		font-family: 'Roboto Slab', serif;
   }
 
   #searchbutton:hover {
-    background-color: #0056b3;
+    background-color: black;
+	color:white;
   }
 #loading{
 	display:none;
@@ -205,6 +208,30 @@
 	border:none;
 	color:white;
 }
+.but1:hover{
+text-shadow:1px 1px 1px black;
+border-radius:12px;
+box-shadow:0 0 8px grey, -3px -2px 3px darkgrey;
+color:grey;
+padding:11px;
+}
+.but2:hover{
+padding:17px;
+border-radius:16px;
+box-shadow:3px 3px 2px grey;
+}
+.but1{
+text-shadow:1px 1px 1px black;
+border-radius:12px;
+box-shadow:0 0 3px grey, -1px -1px 3px grey;
+color:#3a5e9c;
+padding:5px;
+}
+.but2{
+padding:8px;
+border-radius:16px;
+box-shadow:1px 1px 2px grey,0 0 3px grey;
+}
     </style>
 <?php include "visitors_data.php";?>
 <?php include "lib/jmhp.php";?>
@@ -214,11 +241,8 @@
 <img id=loading src='loading_gif.gif'></img>
 <div id=topbar class="fhb w topbar">
 	<a id=logo href="https://jswitch.tech"  class="fhc w">
-		<div class="fvc">
-		<img style="width:50px;height:50px;" src='jslogo.png'></img>
-    	</div>
-		<div class="fvc">
-		&nbspjswitch.tech
+		<div class="but1 fvc">
+		<img style="width:100px" src='jslogo10.png'></img>
     	</div>
     </a>
 
@@ -234,20 +258,53 @@
     <div rel="ebike" class="nav-item">Ebikes</div>
     <div rel="fpv drone" class="nav-item">Drones</div>
 </div>
+<div class="fhc w">
 <button id="categoriesButton" class="fhc">
 	<div class=fvc>
-		<img id=cat_img src='https://creazilla-store.fra1.digitaloceanspaces.com/icons/3268484/rounded-grey-apps-menu-button-icon-sm.png'></img>
 	</div>
-	<div class=fvc>
+	<div class="but2">
+	<div class="fvc but1">
 		&nbspCategories
 	</div>
+	</div>
 </button>
-<div class="fvc">
+<button id="categoriesButton" class="fhc">
+	<div class=fvc>
+	</div>
+	<div class="but2">
+	<div class="fvc but1">
+		&nbspLivraison
+	</div>
+	</div>
+</button>
+<button id="categoriesButton" class="fhc">
+	<div class=fvc>
+	</div>
+	<div class="but2">
+	<div class="fvc but1">
+		&nbspInnovations
+	</div>
+	</div>
+</button>
+<button id="categoriesButton" class="fhc">
+	<div class=fvc>
+	</div>
+	<div class="but2">
+	<div class="fvc but1">
+		&nbspInformations
+	</div>
+	</div>
+</button>
+</div>
+<div class="but2 fvc">
     	<div id="search-container">
-    	    <input autofocus type="text" id="keywords" placeholder="Search...">
-    	    <button id="searchbutton">Search</button>
+    	    <input autofocus type="text" id="keywords" placeholder="Rechercher">
+    	    <button id="searchbutton">Trouver</button>
     	</div>
     </div>
+		<div class="fve">
+			Spécialisé en nano-commerce
+    	</div>
 </div>
 <div id=top_spacer></div>
 <div class='divulgation fhs w'>
@@ -255,30 +312,23 @@
 	<div class=fhc>
 		<img src="https://static.vecteezy.com/system/resources/previews/020/950/906/non_2x/best-choice-label-seal-sticker-stamp-tag-icon-for-shopping-discount-promotion-vector.jpg" style='width:30px;height:30px;'></img>
 		<div class='f1 fvc' style='max-width:300px'>
-			Meilleur rapport qualité-prix
+			Algorithme optimisé
 		</div>
 	</div>
 
 	<div class=fhc>
 		<img src="https://static.vecteezy.com/system/resources/previews/020/950/908/non_2x/only-for-you-label-seal-sticker-stamp-tag-icon-for-shopping-discount-promotion-vector.jpg" style='width:30px;height:30px;'></img>
 		<div class='f1 fvc' style='max-width:300px'>
-			Meilleure sélection
+			M
 		</div>
 	</div>
 
-
-	<div class=fhc>
-		<img src="https://static.vecteezy.com/system/resources/thumbnails/020/950/927/small_2x/free-delivery-badge-seal-sticker-stamp-tag-icon-for-shopping-discount-promotion-vector.jpg" style='width:30px;height:30px;'></img>
-		<div class='f1 fvc' style='max-width:300px'>
-			Livraison gratuite!
-		</div>
-	</div>
 
 
 	<div class=fhc>
 		<img src="https://static.vecteezy.com/system/resources/previews/020/950/905/non_2x/premium-product-label-seal-sticker-stamp-tag-icon-for-shopping-discount-promotion-vector.jpg" style='width:30px;height:30px;'></img>
 		<div class='f1 fvc' style='max-width:300px'>
-			Affiliation Ebay et Amazon (liens commissionnés)
+			Affaires Terribles
 		</div>
 	</div>
 

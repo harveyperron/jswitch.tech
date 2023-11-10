@@ -83,6 +83,12 @@ function gid(id)
 	display:flex;
 	justify-content:space-between;
 }
+.fve
+{
+	display:flex;
+	flex-direction:column;
+	justify-content:flex-end;
+}
 .fvc
 {
 	display:flex;
